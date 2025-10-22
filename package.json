@@ -2,5 +2,12 @@
   "name": "bfl-bitrix-mcp",
   "private": true,
   "type": "module",
-  "scripts": { "ci": "node -v" }
+  "scripts": {
+    "ci": "npm run validate:schemas",
+    "validate:schemas": "ajv compile -c ajv-formats -s schemas/query_watcher_output.json -s schemas/batch_candidates.json -s schemas/scrubber_output.json"
+  },
+  "devDependencies": {
+    "ajv-cli": "^5.0.0",
+    "ajv-formats": "^3.0.1"
+  }
 }
