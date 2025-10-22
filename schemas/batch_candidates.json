@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "properties": {
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source_id": { "type": "string" },
+          "platform": {
+            "type": "string",
+            "enum": ["forum", "city", "vk", "tg", "ok", "qna", "video", "ugc"]
+          },
+          "url": { "type": "string", "format": "uri" },
+          "title": { "type": "string" },
+          "snippet": { "type": "string" },
+          "posted_at": { "type": "string", "format": "date-time" },
+          "region": { "type": ["string", "null"] },
+          "debt_estimate_rub": { "type": ["number", "null"] },
+          "contact": {
+            "type": "object",
+            "properties": {
+              "name": { "type": ["string", "null"] },
+              "phone": { "type": ["string", "null"] },
+              "tg": { "type": ["string", "null"] },
+              "vk": { "type": ["string", "null"] },
+              "email": { "type": ["string", "null"], "format": "email" }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "intent_label": {
+            "type": "string",
+            "enum": ["help_request", "considering", "info_only", "spam"]
+          },
+          "intent_score": { "type": "number" },
+          "risk_flags": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "utm": {
+            "type": "object",
+            "properties": {
+              "query": { "type": ["string", "null"] },
+              "city": { "type": ["string", "null"] }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "meta": { "type": "object" }
+        },
+        "required": ["source_id", "platform", "url", "title", "snippet", "posted_at"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["candidates"],
+  "additionalProperties": false
+}

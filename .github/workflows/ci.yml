@@ -1,0 +1,19 @@
+name: CI
+on:
+  push:
+    branches: [develop, main]
+  pull_request:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Validate JSON Schemas with ajv
+        run: |
+          npx --yes ajv-cli@5 compile \
+            -s schemas/query_watcher_output.json \
+            -s schemas/batch_candidates.json \
+            -s schemas/scrubber_output.json

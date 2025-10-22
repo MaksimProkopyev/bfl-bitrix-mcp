@@ -1,0 +1,6 @@
+{
+  "name": "bfl-bitrix-mcp",
+  "private": true,
+  "type": "module",
+  "scripts": { "ci": "node -v" }
+}

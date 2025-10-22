@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "new_urls": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    }
+  },
+  "required": ["new_urls"],
+  "additionalProperties": false
+}
