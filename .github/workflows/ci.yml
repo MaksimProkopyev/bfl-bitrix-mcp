@@ -19,6 +19,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: npm
-      - run: npm ci --ignore-scripts
-      - run: npm run validate:schemas
+      - name: Validate JSON Schemas with ajv (+formats)
+        run: |
+          npx --yes -p ajv-cli@5 -p ajv-formats ajv compile \
+            -c ajv-formats \
+            -s schemas/query_watcher_output.json \
+            -s schemas/batch_candidates.json \
+            -s schemas/scrubber_output.json
