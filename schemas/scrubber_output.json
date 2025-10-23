@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "candidate": { "type": "object" },
+    "passed": { "type": "boolean" },
+    "contact_ok": { "type": "boolean" }
+  },
+  "required": ["candidate", "passed", "contact_ok"],
+  "additionalProperties": false
+}
